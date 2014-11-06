@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity" >
+    <item android:id="@+id/action_settings"
+        android:title="@string/share"
+        android:icon="@drawable/ic_action_share"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/favorites"
+        android:title="@string/favorites"
+
+        android:showAsAction="never"
+        />
+    <item
+        android:id="@+id/preferences"
+        android:title="@string/preferences"
+        android:showAsAction="never"
+        />
+
+
+</menu>

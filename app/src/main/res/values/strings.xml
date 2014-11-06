@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ClosestOne</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_message">Click on any one of the Categories</string>
+    <string name="gas_station">Gas Station</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="repair_shop">Repair Shop</string>
+    <string name="favorites">Favorites</string>
+    <string name="preferences">Preferences</string>
+    <string name="share">Share on social media</string>
+    <string name="title_activity_set_preferences">SetPreferences</string>
+    <string name="preference_msg">change your preferences by swapping the list</string>
+    <string name="favorites_title">Favorites</string>
+
+</resources>
