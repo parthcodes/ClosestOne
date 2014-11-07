@@ -14,5 +14,6 @@
     <string name="title_activity_set_preferences">SetPreferences</string>
     <string name="preference_msg">change your preferences by swapping the list</string>
     <string name="favorites_title">Favorites</string>
+    <string name="title_activity_results">ResultsActivity</string>
 
 </resources>
