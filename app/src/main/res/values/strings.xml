@@ -12,8 +12,27 @@
     <string name="preferences">Preferences</string>
     <string name="share">Share on social media</string>
     <string name="title_activity_set_preferences">SetPreferences</string>
-    <string name="preference_msg">change your preferences by swapping the list</string>
+    <string name="preference_msg">Hold the list item to swap preferences</string>
     <string name="favorites_title">Favorites</string>
     <string name="title_activity_results">ResultsActivity</string>
+    <string name="blacklisted_places">Disliked Places</string>
+    <string name="about_us">About Us</string>
+    <string name="title_activity_disliked_places">DislikedPlaces</string>
+    <string name="disliked_msg">Displayed are your disliked preferences. Enter new from below. They will be excluded from the search results.</string>
+    <string name="disliked_title">Disliked</string>
+    <string name="title_activity_share">ShareActivity</string>
+    <string name="share_title">Write a Review and Share</string>
+    <string name="name_header_string">Name</string>
+    <string name="address_header_string">Address</string>
+    <string name="distance_header_string">Distance</string>
+
+    <string-array name="planets">
+        <item>Mercury</item>
+        <item>Parth</item>
+        <item>Earth</item>
+        <item>Jupiter</item>
+        <item>Mars</item>
+        <item>Saturn</item>
+    </string-array>
 
 </resources>

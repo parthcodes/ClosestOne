@@ -10,6 +10,7 @@ import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -25,8 +27,10 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * The dynamic listview is an extension of listview that supports cell dragging
@@ -57,6 +61,7 @@ public class DynamicListView extends ListView {
 
     public ArrayList<String> mCheeseList;
 
+    public static final String ARRAYLISTTAG= "arraylisttag";
     private int mLastEventY = -1;
 
     private int mDownY = -1;
@@ -82,6 +87,9 @@ public class DynamicListView extends ListView {
 
     private boolean mIsWaitingForScrollFinish = false;
     private int mScrollState = OnScrollListener.SCROLL_STATE_IDLE;
+
+    private SharedPreferences sharedpreferences;
+
 
     public DynamicListView(Context context) {
         super(context);
@@ -125,6 +133,10 @@ public class DynamicListView extends ListView {
                     mCellIsMobile = true;
 
                     updateNeighborViewsForID(mMobileItemId);
+
+                    //creating & reading shared preferences file
+
+
 
                     return true;
                 }
@@ -327,9 +339,11 @@ public class DynamicListView extends ListView {
             mDownY = mLastEventY;
 
             final int switchViewStartTop = switchView.getTop();
-
-            mobileView.setVisibility(View.VISIBLE);
-            switchView.setVisibility(View.INVISIBLE);
+            if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.KITKAT)
+            {
+                mobileView.setVisibility(View.VISIBLE);
+                switchView.setVisibility(View.INVISIBLE);
+            }
 
             updateNeighborViewsForID(mMobileItemId);
 
@@ -362,6 +376,27 @@ public class DynamicListView extends ListView {
         Object temp = arrayList.get(indexOne);
         arrayList.set(indexOne, arrayList.get(indexTwo));
         arrayList.set(indexTwo, temp);
+
+        sharedpreferences = getContext().getSharedPreferences(HomeActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        final Map<String,?> sample = sharedpreferences.getAll();
+
+        //clearing all the data
+        editor.clear().commit();
+
+        for(int i=0;i<sample.size();i++){
+            editor.putString("priority"+String.valueOf(i+1),mCheeseList.get(i));
+        }
+
+
+        /*editor.putString("priority1",mCheeseList.get(0));
+        editor.putString("priority2",mCheeseList.get(1));
+        editor.putString("priority3",mCheeseList.get(2));
+        editor.putString("priority4",mCheeseList.get(3));*/
+        editor.commit();
+
+        Log.v(ARRAYLISTTAG,String.valueOf(sample.size()));
     }
 
 
