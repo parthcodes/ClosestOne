@@ -109,10 +109,10 @@ public class ResultsActivity extends ListActivity implements LocationListener{
         String response_2="";
 
 
-        String consumerKey = "42IsZffVx9KHCsMYauw75w";
-        String consumerSecret = "NOqogfTZFyQYr8rnC0Ttc4wMvV4";
-        String token = "dod6fXABio4IMoxuG-smBqPPPBXIRugl";
-        String tokenSecret = "qQuJV7WlfM2mYDAnoCW1lDSz2qQ";
+        String consumerKey = "consumerKey";
+        String consumerSecret = "consumerSecret";
+        String token = "token";
+        String tokenSecret = "tokenSecret";
 
         @Override
         protected String doInBackground(Double... coordinates) {
